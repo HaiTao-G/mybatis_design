@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- mybatis的主配置文件 -->
+<configuration>
+    <!-- 配置环境 -->
+    <environments default="mysql">
+        <!-- 配置mysql的环境 -->
+        <environment id="mysql">
+            <!-- 配置事务类型 -->
+            <transactionManager type="JDBC"></transactionManager>
+            <!-- 配置事数据源（连接池） -->
+            <dataSource type="POOLED">
+                <!-- 配置连接数据库的基本信息 -->
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/mybatis_test?useUnicode=true&amp;characterEncoding=utf8&amp;serverTimezone=GMT&amp;useSSL=false&amp;allowPublicKeyRetrieval=true"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!-- 指定映射配置文件的位置，映射配置文件指的是每个dao独立的配置文件 -->
+    <mappers>
+        <!-- 使用xml-->
+        <mapper resource="mapper/IUserDao.xml"/>
+        <!--  使用注解 -->
+        <!-- <mapper class="com.zxy.dao.IUserDao"/>-->
+    </mappers>
+</configuration>
